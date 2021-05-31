@@ -37,6 +37,7 @@ The combinations that have given better results have been:
 
 Graphic with 120 epochs:
 <img width="278" alt="Captura de pantalla 2021-05-31 a las 21 58 29" src="https://user-images.githubusercontent.com/65408666/120235901-56dbf400-c25b-11eb-87f4-f80dbe390b52.png">
+
 Graphic with 60 epochs and 80% train:
 <img width="278" alt="Captura de pantalla 2021-05-31 a las 21 59 10" src="https://user-images.githubusercontent.com/65408666/120235945-6eb37800-c25b-11eb-9726-c4cced9a745c.png">
 
