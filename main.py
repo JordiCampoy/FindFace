@@ -1,10 +1,3 @@
-"""
-La idea es entrenar el model amb els treballadors(suposem que son els 40 de olivetti + el jordi i marti), llavors 
-simular que hi ha una entrada a una sala on és verifica l'identitat amb reconeixament facial, llavors apretant un boto
-que capturi la imatge, i gràcies a la deteccio de cares agafarem la regió que és nomes la cara retallada i fent resize(64x64)
-per a passarli al model i que comprovi si el que esta intentant entrar és un treballador o no.
-"""
-
 import PySimpleGUI as sg
 import face_Recognition as fr
 import face_Detection as fd
@@ -81,7 +74,8 @@ def load_win3(img,model):
     th=0.9
     res=model.predict(img)
     prob=np.max(res)
-    if prob>th:#Permet entrar
+    iprob=np.amax(res)
+    if prob>th and iprob!=n_workers:#Permet entrar
         layout=[[sg.Text("Resultat del Reconeixament:")],
         [sg.Text("TENS LA ENTRADA AUTORITZADA!")],
         [sg.Button("D'ACORD")]]
@@ -153,9 +147,10 @@ if __name__ == '__main__':
     """
     Preparar el model amb els treballadors de la empresa i mostrar resultats
     """
-    x_train,y_train,x_test,y_test=fr.prepare_workers(data,target,8,2)
-    model,history=fr.create_model(x_train,y_train,x_test,y_test,n_workers)
-    fr.show_results(history)
+    #x_train,y_train,x_test,y_test=fr.prepare_workers(data,target,8,2)
+    #model,history=fr.create_model(x_train,y_train,x_test,y_test,n_workers)
+    #fr.show_results(history)
+    model=[]
     load_win1(model)
     
     
