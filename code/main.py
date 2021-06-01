@@ -74,7 +74,7 @@ def load_win3(img,model):
     th=0.9
     res=model.predict(img)
     prob=np.max(res)
-    iprob=np.amax(res)
+    iprob=np.argmax(res)
     if prob>th and iprob!=n_workers:#Permet entrar
         layout=[[sg.Text("Resultat del Reconeixament:")],
         [sg.Text("TENS LA ENTRADA AUTORITZADA!")],
@@ -147,10 +147,9 @@ if __name__ == '__main__':
     """
     Preparar el model amb els treballadors de la empresa i mostrar resultats
     """
-    #x_train,y_train,x_test,y_test=fr.prepare_workers(data,target,8,2)
-    #model,history=fr.create_model(x_train,y_train,x_test,y_test,n_workers)
+    x_train,y_train,x_test,y_test=fr.prepare_workers(data,target,8,2)
+    model,history=fr.create_model(x_train,y_train,x_test,y_test,n_workers)
     #fr.show_results(history)
-    model=[]
     load_win1(model)
     
     
